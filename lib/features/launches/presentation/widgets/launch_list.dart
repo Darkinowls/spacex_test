@@ -21,8 +21,7 @@ class LaunchList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15),
         itemCount: state.launches.length,
         itemBuilder: (context, index) => LaunchTile(
-          launches: state.launches,
-          index: index,
+          launch: state.launches[index],
         ),
         separatorBuilder: (context, index) => const SizedBox(height: 10),
       );

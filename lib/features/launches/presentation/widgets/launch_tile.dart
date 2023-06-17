@@ -4,10 +4,10 @@ import 'package:spacex_test/features/launches/domain/entities/launch_entity.dart
 import 'package:url_launcher/url_launcher.dart';
 
 class LaunchTile extends StatelessWidget {
-  final List<LaunchEntity> launches;
-  final int index;
+  final LaunchEntity launch;
 
-  const LaunchTile({Key? key, required this.launches, required this.index})
+
+  const LaunchTile({Key? key, required this.launch})
       : super(key: key);
 
   @override
@@ -16,10 +16,10 @@ class LaunchTile extends StatelessWidget {
       shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(25)),
       contentPadding: const EdgeInsets.all(10),
       tileColor: const Color.fromRGBO(28, 28, 28, 1),
-      onTap: (launches[index].wikiUri == null)
+      onTap: (launch.wikiUri == null)
           ? null
           : () {
-              launchUrl(launches[index].wikiUri!).then((success) {
+              launchUrl(launch.wikiUri!).then((success) {
                 if (!success) {
                   showDialog(
                       context: context,
@@ -37,21 +37,21 @@ class LaunchTile extends StatelessWidget {
       leading: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(launches[index].dateTime.getDate(),
+          Text(launch.dateTime.getDate(),
               style: const TextStyle(
                   color: Color.fromRGBO(186, 252, 84, 1), fontSize: 16)),
           Text(
-            launches[index].dateTime.getTime(),
+            launch.dateTime.getTime(),
             style: const TextStyle(color: Colors.grey),
           )
         ],
       ),
       title: Text(
-        launches[index].missionName,
+        launch.missionName,
         style: const TextStyle(fontSize: 18),
       ),
       subtitle: Text(
-        launches[index].launchSiteName,
+        launch.launchSiteName,
         style: const TextStyle(color: Colors.grey),
       ),
     );
