@@ -16,22 +16,24 @@ class LaunchTile extends StatelessWidget {
       shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(25)),
       contentPadding: const EdgeInsets.all(10),
       tileColor: const Color.fromRGBO(28, 28, 28, 1),
-      onTap: () {
-        launchUrl(launches[index].wikiUri).then((success) {
-          if (!success) {
-            showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                      title: const Text("The wiki page is not found"),
-                      actions: [
-                        TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: const Text("Ok"))
-                      ],
-                    ));
-          }
-        });
-      },
+      onTap: (launches[index].wikiUri == null)
+          ? null
+          : () {
+              launchUrl(launches[index].wikiUri!).then((success) {
+                if (!success) {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            title: const Text("The wiki page is not found"),
+                            actions: [
+                              TextButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: const Text("Ok"))
+                            ],
+                          ));
+                }
+              });
+            },
       leading: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

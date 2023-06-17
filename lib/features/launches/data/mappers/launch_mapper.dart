@@ -7,7 +7,9 @@ class LaunchMapper {
       dateTime: launchModel.launchDateLocal,
       missionName: launchModel.missionName,
       launchSiteName: launchModel.launchSite.siteNameLong,
-      wikiUri: Uri.parse(launchModel.wikiUrl!),
+      wikiUri: (launchModel.wikiUrl == null)
+          ? null
+          : Uri.tryParse(launchModel.wikiUrl!),
     );
   }
 }
