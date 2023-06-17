@@ -17,6 +17,9 @@ class LaunchList extends StatelessWidget {
       if (state.status == Status.loading) {
         return const Loader();
       }
+      if (state.launches.isEmpty) {
+        return const Center(child: Text("No missions now"));
+      }
       return ListView.separated(
         itemCount: state.launches.length,
         itemBuilder: (context, index) => LaunchTile(

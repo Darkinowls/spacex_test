@@ -37,10 +37,10 @@ class LaunchTile extends StatelessWidget {
                 },
           child: Ink(
             padding: const EdgeInsets.all(15),
-            height: 100,
             decoration:
                 const BoxDecoration(color: Color.fromRGBO(28, 28, 28, 1)),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Flexible(
                   fit: FlexFit.tight,
