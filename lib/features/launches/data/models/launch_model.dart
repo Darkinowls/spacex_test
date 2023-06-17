@@ -11,7 +11,7 @@ class LaunchModel {
   final String tentativeMaxPrecision;
   final bool tbd;
   final LaunchSite launchSite;
-  final String wikiUrl;
+  final String? wikiUrl;
 
   LaunchModel(
       {required this.flightNumber,
@@ -25,8 +25,7 @@ class LaunchModel {
       required this.isTentative,
       required this.tentativeMaxPrecision,
       required this.tbd,
-      required this.launchSite,
-      required this.wikiUrl});
+      required this.launchSite, this.wikiUrl});
 
   factory LaunchModel.fromJson(Map<String, dynamic> json) => LaunchModel(
       flightNumber: json["flight_number"],
