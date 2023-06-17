@@ -34,8 +34,7 @@ class RocketCarousel extends StatelessWidget {
                         Container(
                   margin: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(25),
+                      borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
                           image: CachedNetworkImageProvider(
                               state.rockets[itemIndex].imageRef),

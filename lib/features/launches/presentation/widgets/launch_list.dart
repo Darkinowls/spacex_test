@@ -18,7 +18,6 @@ class LaunchList extends StatelessWidget {
         return const Loader();
       }
       return ListView.separated(
-        padding: const EdgeInsets.symmetric(vertical: 15),
         itemCount: state.launches.length,
         itemBuilder: (context, index) => LaunchTile(
           launch: state.launches[index],

@@ -27,6 +27,7 @@ class LaunchesScreen extends StatelessWidget {
                       "Missions",
                       style: TextStyle(fontSize: 24),
                     ),
+                    SizedBox(height: 15),
                     Expanded(child: LaunchList())
                   ],
                 ),
