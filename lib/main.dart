@@ -4,6 +4,7 @@ import 'package:spacex_test/core/app_theme.dart';
 import 'package:spacex_test/core/locator.dart';
 import 'package:spacex_test/features/launches/domain/repositories/i_launch_repository.dart';
 import 'package:spacex_test/features/launches/presentation/cubit/launches_cubit.dart';
+import 'package:spacex_test/features/network/presentation/cubit/network_cubit.dart';
 
 import 'features/rockets/presentation/cubit/rockets_cubit.dart';
 import 'launches_screen.dart';
@@ -25,9 +26,8 @@ class MyApp extends StatelessWidget {
         theme: appTheme,
         home: MultiBlocProvider(
           providers: [
-            BlocProvider.value(
-              value: lc<RocketsCubit>(),
-            ),
+            BlocProvider.value(value: lc<NetworkCubit>()),
+            BlocProvider.value(value: lc<RocketsCubit>()),
             BlocProvider.value(value: lc<LaunchesCubit>())
           ],
           child: const LaunchesScreen(),
